@@ -7,12 +7,12 @@ on:
     # UTC의 09:00는 한국시간 18:00
     - cron: '0 0-23/1 * * 1-5'
 jobs:
-  build:
-    name: Tesla
+  pltr:
+    name: pltr
     runs-on: ubuntu-latest
     steps:
-      - name: Tesla stock
-        id: tesla
+      - name: pltr stock
+        id: pltr
         uses: strong-gemi/action-alphavantage-time-series-stock-api@master
         with:
           function: 'GLOBAL_QUOTE'
@@ -27,7 +27,7 @@ jobs:
               icon_emoji: ':octocat:',
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `price - ${{ steps.tesla.outputs.GQ-price }}`,
+                text: `price - ${{ steps.pltr.outputs.GQ-price }}`,
               }]
             }
         env:
