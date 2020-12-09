@@ -50,7 +50,7 @@ jobs:
               icon_emoji: ':octocat:',
               attachments: [{
                 color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `price - ${{ steps.snow.outputs.GQ-price }}`,
+                text: `price - ${{ steps.nkla.outputs.GQ-price }}`,
               }]
             }
         env:
