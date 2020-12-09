@@ -1,21 +1,23 @@
-name: Scheduled
-on:
-  schedule:
-    # 월화수목금 9~18시에 한시간마다 실행
-    # UTC의 09:00는 한국시간 18:00
-    - cron: '0 0-23/1 * * 1-5'
+name: For Test
+on: [push]
+#name: Scheduled
+#on:
+#  schedule:
+#    # 월화수목금 9~18시에 한시간마다 실행
+#    # UTC의 09:00는 한국시간 18:00
+#    - cron: '0 0-23/1 * * 1-5'
 jobs:
   build:
     name: Tesla
     runs-on: ubuntu-latest
+    steps:
       - name: Tesla stock
         id: tesla
         uses: strong-gemi/action-alphavantage-time-series-stock-api@master
         with:
           function: 'GLOBAL_QUOTE'
           symbol: 'TSLA'
-      - name: Notify Slack
-        - uses: 8398a7/action-slack@v3
+      - uses: 8398a7/action-slack@v3
         with:
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
