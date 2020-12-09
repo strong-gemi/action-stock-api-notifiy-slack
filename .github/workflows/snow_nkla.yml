@@ -1,0 +1,57 @@
+#name: For Test
+#on: [push]
+name: snowflake & nikola
+on:
+  schedule:
+    - cron: '0 0-23/1 * * 1-5'
+jobs:
+  snow:
+    name: SnowFlake
+    runs-on: ubuntu-latest
+    steps:
+      - name: SnowFlake stock
+        id: snow
+        uses: strong-gemi/action-alphavantage-time-series-stock-api@master
+        with:
+          function: 'GLOBAL_QUOTE'
+          symbol: 'SNOW'
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              username: 'SnowFlake 종가',
+              icon_emoji: ':octocat:',
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `price - ${{ steps.snow.outputs.GQ-price }}`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SNOW_SLACK_WEBHOOK_URL }}
+  nkla:
+    name: Nikola
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nikola stock
+        id: nkla
+        uses: strong-gemi/action-alphavantage-time-series-stock-api@master
+        with:
+          function: 'GLOBAL_QUOTE'
+          symbol: 'NKLA'
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              username: 'Nikola 종가',
+              icon_emoji: ':octocat:',
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `price - ${{ steps.snow.outputs.GQ-price }}`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.NKLA_SLACK_WEBHOOK_URL }}
