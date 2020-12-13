@@ -26,19 +26,17 @@ jobs:
               username: 'tesla종가',
               icon_emoji: ':octocat:',
               blocks: [{
-		          	type: 'actions',
-		          	elements: [
-		          		{
-		          			type: "button",
-		          			text: {
-		          				type: "plain_text",
-		          				emoji: true,
-		          				text: "Approve"
-		          			},
-		          			style: "primary",
-		          			value: "click_me_123"
-		          		}
-		          	]
+                type: 'actions',
+                elements: [{
+                  type: "button",
+                  text: {
+                    type: "plain_text",
+                    emoji: true,
+                    text: "Approve"
+		          		},
+		          	  style: "primary",
+		          	  value: "click_me_123"
+		          	}]
 		          }]
             }
           env:
