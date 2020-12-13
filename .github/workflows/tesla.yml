@@ -33,11 +33,11 @@ jobs:
                     type: "plain_text",
                     emoji: true,
                     text: "Approve"
-		          		},
-		          	  style: "primary",
-		          	  value: "click_me_123"
-		          	}]
-		          }]
+                  },
+                  style: "primary",
+                  value: "click_me_123"
+                }]
+              }]
             }
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
