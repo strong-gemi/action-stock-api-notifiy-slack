@@ -25,22 +25,18 @@ jobs:
             {
               username: 'tesla종가',
               icon_emoji: ':octocat:',
-              #attachments: [{
-              #  color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-              #  text: `price - ${{ steps.tesla.outputs.GQ-price }}`,
-              #}]
               blocks: [{
 		          	type: "actions",
 		          	elements: [
 		          		{
-		          			"type": "button",
-		          			"text": {
-		          				"type": "plain_text",
-		          				"emoji": true,
-		          				"text": "Approve"
+		          			type: "button",
+		          			text: {
+		          				type: "plain_text",
+		          				emoji: true,
+		          				text: "Approve"
 		          			},
-		          			"style": "primary",
-		          			"value": "click_me_123"
+		          			style: "primary",
+		          			value: "click_me_123"
 		          		}
 		          	]
 		          }]
