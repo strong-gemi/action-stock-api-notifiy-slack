@@ -19,6 +19,8 @@ jobs:
           symbol: 'TSLA'
       - uses: 8398a7/action-slack@v3
         with:
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
           custom_payload: |
@@ -39,5 +41,3 @@ jobs:
                 }]
               }]
             }
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
