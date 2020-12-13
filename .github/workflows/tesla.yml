@@ -30,8 +30,8 @@ jobs:
               #  text: `price - ${{ steps.tesla.outputs.GQ-price }}`,
               #}]
               blocks: [{
-		          	"type": "actions",
-		          	"elements": [
+		          	type: "actions",
+		          	elements: [
 		          		{
 		          			"type": "button",
 		          			"text": {
