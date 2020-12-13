@@ -1,11 +1,11 @@
-#name: For Test
-#on: [push]
-name: Scheduled
-on:
-  schedule:
-    # 월화수목금 9~18시에 한시간마다 실행
-    # UTC의 09:00는 한국시간 18:00
-    - cron: '0 09-17/1 * * 1-5'
+name: For Test
+on: [push]
+#name: Scheduled3
+#on:
+#  schedule:
+#    # 월화수목금 9~18시에 한시간마다 실행
+#    # UTC의 09:00는 한국시간 18:00
+#    - cron: '0 09-17/1 * * 1-5'
 jobs:
   tesla:
     name: Tesla
@@ -25,10 +25,125 @@ jobs:
             {
               username: 'tesla종가',
               icon_emoji: ':octocat:',
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `price - ${{ steps.tesla.outputs.GQ-price }}`,
-              }]
+              #attachments: [{
+              #  color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+              #  text: `price - ${{ steps.tesla.outputs.GQ-price }}`,
+              #}]
+              blocks: [{
+		          	"type": "actions",
+		          	"elements": [
+		          		{
+		          			"type": "button",
+		          			"text": {
+		          				"type": "plain_text",
+		          				"emoji": true,
+		          				"text": "Approve"
+		          			},
+		          			"style": "primary",
+		          			"value": "click_me_123"
+		          		},
+		          		{
+		          			"type": "button",
+		          			"text": {
+		          				"type": "plain_text",
+		          				"emoji": true,
+		          				"text": "Deny"
+		          			},
+		          			"style": "danger",
+		          			"value": "click_me_123"
+		          		}
+		          	]
+		          },
+		          {
+		          	"type": "section",
+		          	"fields": [
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": "*Type:*\nComputer (laptop)"
+		          		},
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": "*When:*\nSubmitted Aut 10"
+		          		},
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": "*Last Update:*\nMar 10, 2015 (3 years, 5 months)"
+		          		},
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": "*Reason:*\nAll vowel keys aren't working."
+		          		},
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": "*Specs:*\n\"Cheetah Pro 15\" - Fast, really fast\""
+		          		}
+		          	]
+		          },
+              		{
+		          	"type": "context",
+		          	"elements": [
+		          		{
+		          			"type": "mrkdwn",
+		          			"text": ":pushpin: Do you have something to include in the newsletter? Here's *how to submit content*."
+		          		}
+		          	]
+		          },
+		          {
+		          	"type": "section",
+		          	"text": {
+		          		"type": "mrkdwn",
+		          		"text": ":calendar: |   *PAST EVENTS*  | :calendar: "
+		          	}
+		          },
+		          {
+		          	"type": "divider"
+		          },
+		          {
+		          	"type": "section",
+		          	"text": {
+		          		"type": "mrkdwn",
+		          		"text": "`11/13` :pretzel: *Pretzel Day* :pretzel: at _Scranton Office_"
+		          	},
+		          	"accessory": {
+		          		"type": "button",
+		          		"text": {
+		          			"type": "plain_text",
+		          			"text": "RSVP",
+		          			"emoji": true
+		          		}
+		          	}
+		          },
+		          {
+		          	"type": "section",
+		          	"text": {
+		          		"type": "mrkdwn",
+		          		"text": "`12/01` *Toby's Going Away Party* at _Benihana_"
+		          	},
+		          	"accessory": {
+		          		"type": "button",
+		          		"text": {
+		          			"type": "plain_text",
+		          			"text": "Learn More",
+		          			"emoji": true
+		          		}
+		          	}
+		          },
+		          {
+		          	"type": "section",
+		          	"text": {
+		          		"type": "mrkdwn",
+		          		"text": "`11/20-11/22` *Beet the Competition* _ annual retreat at Schrute Farms_"
+		          	},
+		          	"accessory": {
+		          		"type": "button",
+		          		"text": {
+		          			"type": "plain_text",
+		          			"text": "RSVP",
+		          			"emoji": true
+		          		}
+		          	}
+		          },
+              ]
             }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
+          env:
+            SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
