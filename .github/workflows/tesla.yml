@@ -18,9 +18,9 @@ jobs:
           function: 'GLOBAL_QUOTE'
           symbol: 'TSLA'
       - uses: 8398a7/action-slack@v3
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
         with:
-          env:
-            SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
           custom_payload: |
