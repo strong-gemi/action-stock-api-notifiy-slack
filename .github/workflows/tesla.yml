@@ -1,11 +1,11 @@
-name: For Test
-on: [push]
+#name: For Test
+#on: [push]
 #name: Scheduled3
-#on:
-#  schedule:
-#    # 월화수목금 9~18시에 한시간마다 실행
-#    # UTC의 09:00는 한국시간 18:00
-#    - cron: '0 09-17/1 * * 1-5'
+on:
+  schedule:
+    # 월화수목금 9~18시에 한시간마다 실행
+    # UTC의 09:00는 한국시간 18:00
+    - cron: '0 09-17/1 * * 1-5'
 jobs:
   tesla:
     name: Tesla
@@ -71,7 +71,7 @@ jobs:
                   },
                   {
                     type: "mrkdwn",
-                    text: `*BookValue:*\n ${{ steps.tesla-overview.outputs.BookValue }}/${{ steps.tesla-overview.outputs.PEGRatio }}`
+                    text: `*BookValue:*\n ${{ steps.tesla-overview.outputs.BookValue }}`
                   },
                 ]
               }]
