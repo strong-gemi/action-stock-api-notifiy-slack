@@ -29,7 +29,8 @@ jobs:
               icon_emoji: ':octocat:',
               blocks: [{
                 type: 'actions',
-                elements: [{
+                elements: [
+                {
                   type: "button",
                   text: {
                     type: "plain_text",
@@ -38,6 +39,39 @@ jobs:
                   },
                   style: "primary",
                   value: "click_me_123"
-                }]
-              }]
+                },
+                {
+                  type: "button",
+                  text: {
+                    type: "plain_text",
+                    emoji: true,
+                    text: "test2"
+                  },
+                  style: "deny",
+                  value: "click_me_123"
+                }
+                ]
+              },
+              {
+                type: "section",
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: '*Type:*\nComputer (laptop)'
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: '*When:*\nSubmitted Aut 10'
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: '*Last Update:*\nMar 10, 2015 (3 years, 5 months)'
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: "*Specs:*\n\"Cheetah Pro 15\" - Fast, really fast\""
+                  },
+                ]
+              },
+              ]
             }
