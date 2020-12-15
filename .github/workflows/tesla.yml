@@ -50,15 +50,15 @@ jobs:
                 }]
               },{
                 type: 'section',
-                fields: [{
-                  type: "mrkdwn",
-                  text: '*Type:*\nComputer (laptop)'
-                },{
-                  type: "mrkdwn",
-                  text: '*Type:*\nComputer (laptop)'
+                fields: [
+                  {
+                    type: "mrkdwn",
+                    text: "*When:*\nSubmitted Aut 10"
                   },
-                  type: "mrkdwn",
-                  text: '*Type:*\nComputer (laptop)'
+                  {
+                    type: "mrkdwn",
+                    text: "*When:*\nSubmitted Aut 10"
+                  }
                 }]
               }]
             }
