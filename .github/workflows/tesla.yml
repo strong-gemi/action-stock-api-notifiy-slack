@@ -48,5 +48,17 @@ jobs:
                   style: "danger",
                   value: "click_me_123"
                 }]
+              },{
+                type: 'section',
+                fields: [{
+                  type: "mrkdwn",
+                  text: '*Type:*\nComputer (laptop)'
+                },{
+                  type: "mrkdwn",
+                  text: '*Type:*\nComputer (laptop)'
+                  },
+                  type: "mrkdwn",
+                  text: '*Type:*\nComputer (laptop)'
+                }]
               }]
             }
