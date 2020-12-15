@@ -11,11 +11,17 @@ jobs:
     name: Tesla
     runs-on: ubuntu-latest
     steps:
+      #- name: Tesla stock
+      #  id: tesla
+      #  uses: strong-gemi/action-alphavantage-time-series-stock-api@master
+      #  with:
+      #    function: 'GLOBAL_QUOTE'
+      #    symbol: 'TSLA'
       - name: Tesla stock
-        id: tesla
+        id: tesla-overview
         uses: strong-gemi/action-alphavantage-time-series-stock-api@master
         with:
-          function: 'GLOBAL_QUOTE'
+          function: 'OVERVIEW'
           symbol: 'TSLA'
       - uses: 8398a7/action-slack@v3
         env:
@@ -53,7 +59,7 @@ jobs:
                 fields: [
                   {
                     type: "mrkdwn",
-                    text: "*When:*\nSubmitted Aut 10"
+                    text: `*EPS:*\n ${{ steps.tesla-overview.outputs.EPS }}`
                   },
                   {
                     type: "mrkdwn",
