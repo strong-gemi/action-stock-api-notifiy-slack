@@ -19,7 +19,7 @@ jobs:
           symbol: 'TSLA'
       - uses: 8398a7/action-slack@v3
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.TLSA_SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           status: custom
           fields: workflow,job,commit,repo,ref,author,took
@@ -57,8 +57,12 @@ jobs:
                   },
                   {
                     type: "mrkdwn",
-                    text: "*When:*\nSubmitted Aut 10"
-                  }
+                    text: "*Last Update:*\nMar 10, 2015 (3 years, 5 months)"
+                  },
+                  {
+                    type: "mrkdwn",
+                    text: "*Specs:*\n\"Cheetah Pro 15\" - Fast, really fast\""
+                  },
                 ]
               }]
             }
