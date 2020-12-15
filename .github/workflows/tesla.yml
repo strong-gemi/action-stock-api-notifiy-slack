@@ -59,6 +59,6 @@ jobs:
                     type: "mrkdwn",
                     text: "*When:*\nSubmitted Aut 10"
                   }
-                }]
+                ]
               }]
             }
