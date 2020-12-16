@@ -1,4 +1,4 @@
-name: For Test
+name: For Test1
 on: [push]
 #name: Scheduled3
 #on:
