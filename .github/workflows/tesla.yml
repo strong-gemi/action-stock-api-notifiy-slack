@@ -44,7 +44,8 @@ jobs:
                     text: "Approve"
                   },
                   style: "primary",
-                  value: "click_me_123"
+                  value: "click_me_123",
+                  action_id: "action_approve"
                 },{
                   type: "button",
                   text: {
@@ -53,7 +54,8 @@ jobs:
                     text: "Deny"
                   },
                   style: "danger",
-                  value: "click_me_123"
+                  value: "click_me_123",
+                  action_id: "action_reject"
                 }]
               },{
                 type: 'section',
