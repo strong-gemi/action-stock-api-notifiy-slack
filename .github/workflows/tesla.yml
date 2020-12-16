@@ -33,6 +33,7 @@ jobs:
             {
               username: 'tesla종가',
               icon_emoji: ':octocat:',
+              callback_id: 'ci-test',
               blocks: [{
                 type: 'actions',
                 elements: [{
