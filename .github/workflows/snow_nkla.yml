@@ -1,9 +1,9 @@
-#name: For Test
-#on: [push]
+on: [push]
 name: snowflake & nikola
-on:
-  schedule:
-    - cron: '0 09-17/1 * * 1-5'
+#09 =오전12:16
+#on:
+#  schedule:
+#    - cron: '0 13-23/1 * * 1-5'
 jobs:
   snow:
     name: SnowFlake

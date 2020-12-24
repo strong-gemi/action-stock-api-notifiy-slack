@@ -1,11 +1,12 @@
 #name: For Test
 #on: [push]
-name: Scheduled
-on:
-  schedule:
+name: Scheduled2
+on: [push]
+#on:
+#  schedule:
     # 월화수목금 9~18시에 한시간마다 실행
     # UTC의 09:00는 한국시간 18:00
-    - cron: '0 09-17/1 * * 1-5'
+#    - cron: '0 09-17/1 * * 1-5'
 jobs:
   pltr:
     name: pltr
@@ -17,18 +18,24 @@ jobs:
         with:
           function: 'GLOBAL_QUOTE'
           symbol: 'PLTR'
-      - uses: 8398a7/action-slack@v3
+      - uses: strong-gemi/action-slack@main
         with:
-          status: custom
-          fields: workflow,job,commit,repo,ref,author,took
-          custom_payload: |
-            {
-              username: '팔란티어 종가',
-              icon_emoji: ':octocat:',
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `price - ${{ steps.pltr.outputs.GQ-price }}`,
-              }]
-            }
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took # selectable (default: repo,message)
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.PLTR_SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: 'https://hooks.slack.com/services/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' # required
+        if: always() # Pick up events even if the job fails or is canceled.
+      #- uses: 8398a7/action-slack@v3.8.0
+      #  with:
+      #    status: custom
+      #    custom_payload: |
+      #      {
+      #        username: '팔란티어 종가',
+      #        icon_emoji: ':octocat:',
+      #        attachments: [{
+      #          color: 'good'
+      #          text: `price - ${{ steps.pltr.outputs.GQ-price }}`,
+      #        }]
+      #      }
+      #  env:
+      #    SLACK_WEBHOOK_URL: ${{ secrets.PLTR_SLACK_WEBHOOK_URL }}
